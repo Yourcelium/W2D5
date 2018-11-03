@@ -17,6 +17,11 @@ class Node
     @next.prev, @prev.next = @prev, @next
     @prev, @next = nil
   end
+  
+  def inspect
+    "Key: #{@key} Val:#{ @val } "
+    
+  end
 end
 
 
@@ -69,11 +74,16 @@ class LinkedList
     new_node.next = @tail
     
     @tail.prev = new_node
+    
+    new_node
   end
 
   def update(key, val)
     each { |node| node.val = val if node.key == key }
   end
+  
+  
+
 
   def remove(key)
     each do |node| 

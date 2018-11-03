@@ -14,6 +14,10 @@ class LRUCache
   end
 
   def get(key)
+    proc.call(key) if @map.include?(key)
+    
+    # is it in the cache?
+    # 
   end
 
   def to_s
