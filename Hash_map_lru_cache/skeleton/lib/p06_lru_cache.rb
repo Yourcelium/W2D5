@@ -17,6 +17,7 @@ class LRUCache
 
   def get(key)    
     # is it in the cache?
+    
     if @map.include?(key)
       hit_node = @map.get(key)
       found_square = hit_node.val
@@ -35,8 +36,9 @@ class LRUCache
     else
       # cache is full, so remove LRU square and add new square
       oldest_key = @store.first.key
+      
       @store.first.remove
-      # debugger
+      @map.delete(oldest_key)
       new_node = @store.append(key, squared)
       @map.set(key, new_node)
     end
